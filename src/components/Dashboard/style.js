@@ -15,6 +15,8 @@ export const Card = styled.div`
     flex-direction: column;
     gap: 32px;
     border-radius: 12px;
+    width: 200px;
+
 `;
 
 export const ValueAmount = styled.span`
@@ -33,8 +35,12 @@ export const TypeOf = styled.span`
     color: #fff;
 `;
 
-export const TypeOfSymbol = styled.span`
+export const TypeOfSymbol = styled.div`
     display: flex;
     align-items: center;
-    color: green;
+    justify-content: center;
+    background-color: ${props => props.backgroundColor};
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
 `;

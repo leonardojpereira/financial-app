@@ -1,4 +1,5 @@
 import Dashboard from "./components/Dashboard";
+import Form from "./components/Form";
 import Header from "./components/Header";
 
 export default function App() {
@@ -6,6 +7,7 @@ export default function App() {
     <>
        <Header/>
        <Dashboard/>
+       <Form/>
     </>
   
   );
