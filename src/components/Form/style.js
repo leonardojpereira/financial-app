@@ -74,71 +74,24 @@ export const Input = styled.input`
 `;
 
 export const SelectType = styled.select`
+  width: 150px;
+  height: 28px;
+  padding: 0 4px;
+  margin-top: 36px;
 `;
 
-export const OptionType = styled.option``;
+export const OptionType = styled.option`
+
+`;
 
 export const Button = styled.button`
   padding: 8px 40px;
-  background-color: #0064ff;
+  background: linear-gradient(to right, ${primaryColor}, ${secondaryColor});
   color: #fff;
   border: none;
   border-radius: 8px;
   font-size: 16px;
+  margin-top: 36px;
+  font-weight: bold;
 `;
 
-export const SalesTable = styled.table`
-  width: 100%;
-  max-width: 1260px;
-  border-collapse: collapse;
-  table-layout: fixed;
-  margin: 22px auto;
-`;
-
-export const TableBody = styled.tbody`
-  @media (max-width: 830px) {
-    display: block;
-    width: 100%;
-  }
-`;
-
-export const Tr = styled.tr`
-  @media (max-width: 830px) {
-    display: block;
-    width: 100%;
-    margin-bottom: 22px;
-  }
-`;
-
-export const GridItem = styled.td`
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  text-align: center;
-  font-size: 16px;
-  &:last-child {
-    border-bottom-left-radius: 8px;
-  }
-  @media (max-width: 830px) {
-    display: block;
-    width: 100%;
-    padding-left: 50%;
-    text-align: right;
-    position: relative;
-    &::before {
-      content: attr(data-label);
-      position: absolute;
-      left: 0;
-      width: 50%;
-      padding-left: 15px;
-      font-size: 15px;
-      font-weight: bold;
-      text-align: left;
-    }
-  }
-`;
-
-export const IconDelete = styled.span`
-  color: rgb(190, 67, 67);
-  cursor: pointer;
-  font-size: 14px;
-`;

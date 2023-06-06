@@ -11,7 +11,7 @@ export const GridItemTitle = styled.th`
   padding: 12px 15px;
   text-align: center;
   font-size: 16px;
-  background-color: rgb(57 54 52);
+  background: rgb(57 54 52);
   color: #ffffff;
   &:first-child {
     border-top-left-radius: 8px;

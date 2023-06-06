@@ -6,8 +6,7 @@ import {
   TypeOf,
   TypeOfSymbol,
 } from "./style";
-import { FaArrowUp, FaArrowDown } from "react-icons/fa";
-import { CgMathEqual } from "react-icons/cg";
+import { CgArrowTopRight, CgArrowBottomLeft, CgMathEqual } from 'react-icons/cg'
 
 export default function Dashboard({ itemList }) {
   const calculateTotal = () => {
@@ -29,7 +28,7 @@ export default function Dashboard({ itemList }) {
         .reduce((acc, item) => acc + Number(item.value), 0)
         .toFixed(2)}`,
       type: "Entrada",
-      icon: <FaArrowUp color="#fff" size={15} />,
+      icon: <CgArrowTopRight color="#fff" size={22} />,
       color: "green",
     },
     {
@@ -38,7 +37,7 @@ export default function Dashboard({ itemList }) {
         .reduce((acc, item) => acc + Number(item.value), 0)
         .toFixed(2)}`,
       type: "Saída",
-      icon: <FaArrowDown size={15} color="#fff" />,
+      icon: <CgArrowBottomLeft size={22} color="#fff" />,
       color: "red",
     },
     {

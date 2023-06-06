@@ -9,14 +9,13 @@ export const DashboardContainer = styled.div`
 `;
 
 export const Card = styled.div`
-    padding: 22px 22px 12px 22px;
+    padding: 32px 22px 12px 22px;
     background-color: #383838;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 60px;
     border-radius: 12px;
-    width: 200px;
-
+    width: 300px;
 `;
 
 export const ValueAmount = styled.span`
