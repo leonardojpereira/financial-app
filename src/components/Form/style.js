@@ -12,7 +12,7 @@ export const FormContainer = styled.form`
   margin-top: 100px;
   gap: 20px;
   width: 100%;
-  
+  margin-bottom: 32px;
 `;
 
 export const FieldGroup = styled.div`
@@ -74,14 +74,20 @@ export const Input = styled.input`
 `;
 
 export const SelectType = styled.select`
+  font-family: inherit;
   width: 150px;
-  height: 28px;
-  padding: 0 4px;
-  margin-top: 36px;
+  border: 0;
+  border-bottom: 2px solid ${grayColor};
+  outline: 0;
+  font-size: 1.2rem;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  color: #000;
+  margin-top: 24px;
 `;
 
 export const OptionType = styled.option`
-
 `;
 
 export const Button = styled.button`
@@ -93,5 +99,13 @@ export const Button = styled.button`
   font-size: 16px;
   margin-top: 36px;
   font-weight: bold;
+  cursor: pointer;
 `;
 
+export const ErrorMessage = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+color: red;
+position: relative;
+`;

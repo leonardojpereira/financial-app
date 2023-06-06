@@ -7,11 +7,15 @@ import {
   SelectType,
   OptionType,
   Button,
+  ErrorMessage
 } from "./style";
 import moment from "moment";
 
 
-export default function Form({ itemList, onAddItem, onDeleteItem }) {
+export default function Form({ onAddItem }) {
+
+  const [isEmpty, setIsEmpty] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     value: "",
@@ -37,18 +41,23 @@ export default function Form({ itemList, onAddItem, onDeleteItem }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newItem = {
-      id: generateRandomId(),
-      ...formData,
-      date: moment().format("DD/MM/YYYY"),
-    };
-    onAddItem(newItem);
-    setFormData({
-      name: "",
-      value: "",
-      type: "",
-      date: "",
-    });
+    if (formData.name !== "" && formData.value !== "" && formData.type !== "") {
+      const newItem = {
+        id: generateRandomId(),
+        ...formData,
+        date: moment().format("DD/MM/YYYY"),
+      };
+      onAddItem(newItem);
+      setFormData({
+        name: "",
+        value: "",
+        type: "",
+        date: "",
+      });
+      setIsEmpty(false); // Define isEmpty como false após enviar o formulário
+    } else {
+      setIsEmpty(true); // Define isEmpty como true se algum campo estiver vazio
+    }
   };
 
   return (
@@ -73,9 +82,10 @@ export default function Form({ itemList, onAddItem, onDeleteItem }) {
             name="value"
             id="value"
             value={formData.value}
+            min={1}
             onChange={(e) => handleFormEdit(e, "value")}
           />
-          <FormLabel htmlFor="value" className="form__label">
+          <FormLabel htmlFor="value">
             Valor
           </FormLabel>
         </FieldGroup>
@@ -93,6 +103,7 @@ export default function Form({ itemList, onAddItem, onDeleteItem }) {
         </SelectType>
         <Button type="submit">Enviar</Button>
       </FormContainer>
+      <ErrorMessage>{isEmpty && <p style={{position: "absolute", bottom: "-20px"}}>Todos os campos precisam ser preenchidos.</p>}</ErrorMessage>
     </>
   );
 }

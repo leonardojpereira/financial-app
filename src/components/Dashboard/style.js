@@ -13,13 +13,13 @@ export const Card = styled.div`
     background-color: #383838;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 40px;
     border-radius: 12px;
-    width: 300px;
+    width: 250px;
 `;
 
 export const ValueAmount = styled.span`
-    font-size: 32px;
+    font-size: 28px;
     color: #fff;
 `;
 

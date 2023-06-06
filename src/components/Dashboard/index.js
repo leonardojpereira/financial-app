@@ -21,27 +21,36 @@ export default function Dashboard({ itemList }) {
     return totalIncome - totalExpense;
   };
 
+  const formatCurrency = (value) => {
+    return value.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+  };
+
   const cardData = [
     {
-      amount: `R$ ${itemList
-        .filter((item) => item.type === "Entrada")
-        .reduce((acc, item) => acc + Number(item.value), 0)
-        .toFixed(2)}`,
+      amount: formatCurrency(
+        itemList
+          .filter((item) => item.type === "Entrada")
+          .reduce((acc, item) => acc + Number(item.value), 0)
+      ),
       type: "Entrada",
       icon: <CgArrowTopRight color="#fff" size={22} />,
       color: "green",
     },
     {
-      amount: `R$ ${itemList
-        .filter((item) => item.type === "Saída")
-        .reduce((acc, item) => acc + Number(item.value), 0)
-        .toFixed(2)}`,
+      amount: formatCurrency(
+        itemList
+          .filter((item) => item.type === "Saída")
+          .reduce((acc, item) => acc + Number(item.value), 0)
+      ),
       type: "Saída",
       icon: <CgArrowBottomLeft size={22} color="#fff" />,
       color: "red",
     },
     {
-      amount: `R$ ${calculateTotal().toFixed(2)}`,
+      amount: formatCurrency(calculateTotal()),
       type: "Total",
       icon: <CgMathEqual size={18} color="#fff" />,
       color: "#0064ff",

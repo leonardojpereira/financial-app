@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from './components/Header'
+import Banner from "./components/Banner";
 import Form from "./components/Form";
 import Dashboard from "./components/Dashboard";
 import Table from "./components/Table";
@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <>
-      <Header/>
+      <Banner/>
       <Dashboard itemList={itemList} />
       <Form
         itemList={itemList}
