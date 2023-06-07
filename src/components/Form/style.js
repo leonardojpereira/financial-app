@@ -13,6 +13,10 @@ export const FormContainer = styled.form`
   gap: 20px;
   width: 100%;
   margin-bottom: 32px;
+  @media screen and (max-width: 990px) {
+   margin-top: 0;
+   flex-direction: column;
+}
 `;
 
 export const FieldGroup = styled.div`
@@ -20,6 +24,9 @@ export const FieldGroup = styled.div`
   padding: 15px 0 0;
   margin-top: 10px;
   width: 250px;
+  @media screen and (max-width: 990px) {
+    width: 75%;
+ }
 `;
 
 export const FormLabel = styled.label`
@@ -71,6 +78,8 @@ export const Input = styled.input`
       font-weight: 700;
     }
   }
+
+  
 `;
 
 export const SelectType = styled.select`
@@ -85,6 +94,9 @@ export const SelectType = styled.select`
   transition: border-color 0.2s;
   color: #000;
   margin-top: 24px;
+  @media screen and (max-width: 990px) {
+    width: 75%;
+ }
 `;
 
 export const OptionType = styled.option`
@@ -95,11 +107,20 @@ export const Button = styled.button`
   background: linear-gradient(to right, ${primaryColor}, ${secondaryColor});
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 16px;
-  margin-top: 36px;
+  margin-top: 28px;
   font-weight: bold;
+  transition:  0.4s ease;
   cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+  @media screen and (max-width: 990px) {
+    width: 75%;
+    padding: 12px 40px;
+    margin-top: 0;
+ }
 `;
 
 export const ErrorMessage = styled.div`

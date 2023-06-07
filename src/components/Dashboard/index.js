@@ -6,7 +6,11 @@ import {
   TypeOf,
   TypeOfSymbol,
 } from "./style";
-import { CgArrowTopRight, CgArrowBottomLeft, CgMathEqual } from 'react-icons/cg'
+import {
+  CgArrowTopRight,
+  CgArrowBottomLeft,
+  CgMathEqual,
+} from "react-icons/cg";
 
 export default function Dashboard({ itemList }) {
   const calculateTotal = () => {
@@ -22,10 +26,14 @@ export default function Dashboard({ itemList }) {
   };
 
   const formatCurrency = (value) => {
-    return value.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
+    if (typeof value === "number" && !isNaN(value)) {
+      return value.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      });
+    } else {
+      return "";
+    }
   };
 
   const cardData = [

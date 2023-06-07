@@ -1,9 +1,9 @@
-import { BannerContainer, Title } from './style';
+import { BannerContainer } from './style';
 
 export default function Banner() {
     return(
         <BannerContainer>
-            <Title>Organize suas despesas do jeito fácil!</Title>
+            
         </BannerContainer>
     );
 }

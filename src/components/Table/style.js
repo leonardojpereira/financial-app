@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const TableContainer = styled.table`
-  width: 100%;
+  width: 95%;
   max-width: 1260px;
   border-collapse: collapse;
   table-layout: fixed;
   margin: 22px auto;
+  margin-bottom: 62px;
 `;
 
 export const TableBody = styled.tbody`
@@ -31,7 +32,6 @@ export const GridItem = styled.td`
   
   @media (max-width: 830px) {
     display: block;
-    width: 100%;
     padding-left: 50%;
     text-align: right;
     position: relative;
@@ -49,7 +49,7 @@ export const GridItem = styled.td`
 `;
 
 export const IconDelete = styled.span`
-  color: rgb(190, 67, 67);
+  color: red;
   cursor: pointer;
   font-size: 14px;
 `;

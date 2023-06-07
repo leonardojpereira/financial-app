@@ -25,7 +25,7 @@ const Table = ({ itemList, onDeleteItem, formatCurrency }) => {
           >
             <GridItem data-label="ID">{item.id}</GridItem>
             <GridItem data-label="Receita/Despesa">{item.name}</GridItem>
-            <GridItem data-label="Valor">{formatCurrency(item.value)}</GridItem>
+            <GridItem data-label="Valor">{formatCurrency(item.value, item.type)}</GridItem>
             <GridItem data-label="Tipo">
               {item.type === "Entrada" ? (
                 <CgArrowTopRight size={26} color="green" />

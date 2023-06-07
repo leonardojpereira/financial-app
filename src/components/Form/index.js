@@ -44,7 +44,9 @@ export default function Form({ onAddItem }) {
     if (formData.name !== "" && formData.value !== "" && formData.type !== "") {
       const newItem = {
         id: generateRandomId(),
-        ...formData,
+        name: formData.name,
+        value: parseFloat(formData.value.replace(",", ".")),
+        type: formData.type,
         date: moment().format("DD/MM/YYYY"),
       };
       onAddItem(newItem);
@@ -54,9 +56,9 @@ export default function Form({ onAddItem }) {
         type: "",
         date: "",
       });
-      setIsEmpty(false); // Define isEmpty como false após enviar o formulário
+      setIsEmpty(false);
     } else {
-      setIsEmpty(true); // Define isEmpty como true se algum campo estiver vazio
+      setIsEmpty(true);
     }
   };
 
@@ -78,7 +80,7 @@ export default function Form({ onAddItem }) {
         <FieldGroup>
           <Input
             placeholder="Valor R$"
-            type="number"
+            type="text"
             name="value"
             id="value"
             value={formData.value}
