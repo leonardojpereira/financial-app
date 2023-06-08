@@ -11,11 +11,9 @@ import {
 } from "./style";
 import moment from "moment";
 
-
 export default function Form({ onAddItem }) {
-
   const [isEmpty, setIsEmpty] = useState(false);
-
+  const [isZeroValue, setIsZeroValue] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     value: "",
@@ -24,9 +22,15 @@ export default function Form({ onAddItem }) {
   });
 
   const handleFormEdit = (event, name) => {
+    let value = event.target.value;
+
+    if (name === "value") {
+      value = value.replace(/[^0-9.,]/g, ""); // Remove caracteres não numéricos, exceto ponto e vírgula
+    }
+
     setFormData({
       ...formData,
-      [name]: event.target.value,
+      [name]: value,
     });
   };
 
@@ -41,24 +45,33 @@ export default function Form({ onAddItem }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.name !== "" && formData.value !== "" && formData.type !== "") {
-      const newItem = {
-        id: generateRandomId(),
-        name: formData.name,
-        value: parseFloat(formData.value.replace(",", ".")),
-        type: formData.type,
-        date: moment().format("DD/MM/YYYY"),
-      };
-      onAddItem(newItem);
-      setFormData({
-        name: "",
-        value: "",
-        type: "",
-        date: "",
-      });
-      setIsEmpty(false);
+    const { name, value, type } = formData;
+    if (name !== "" && value !== "" && type !== "") {
+      const parsedValue = parseFloat(value.replace(",", "."));
+      if (parsedValue > 0) {
+        const newItem = {
+          id: generateRandomId(),
+          name,
+          value: parsedValue,
+          type,
+          date: moment().format("DD/MM/YYYY"),
+        };
+        onAddItem(newItem);
+        setFormData({
+          name: "",
+          value: "",
+          type: "",
+          date: "",
+        });
+        setIsEmpty(false);
+        setIsZeroValue(false);
+      } else {
+        setIsZeroValue(true);
+        setIsEmpty(false);
+      }
     } else {
       setIsEmpty(true);
+      setIsZeroValue(false);
     }
   };
 
@@ -72,6 +85,7 @@ export default function Form({ onAddItem }) {
             name="name"
             id="name"
             value={formData.name}
+            autoComplete="off"
             onChange={(e) => handleFormEdit(e, "name")}
           />
           <FormLabel htmlFor="name">Nome</FormLabel>
@@ -84,12 +98,10 @@ export default function Form({ onAddItem }) {
             name="value"
             id="value"
             value={formData.value}
-            min={1}
+            autoComplete="off"
             onChange={(e) => handleFormEdit(e, "value")}
           />
-          <FormLabel htmlFor="value">
-            Valor
-          </FormLabel>
+          <FormLabel htmlFor="value">Valor</FormLabel>
         </FieldGroup>
 
         <SelectType
@@ -105,7 +117,18 @@ export default function Form({ onAddItem }) {
         </SelectType>
         <Button type="submit">Enviar</Button>
       </FormContainer>
-      <ErrorMessage>{isEmpty && <p style={{position: "absolute", bottom: "-20px"}}>Todos os campos precisam ser preenchidos.</p>}</ErrorMessage>
+      <ErrorMessage>
+        {isEmpty && (
+          <p style={{ position: "absolute", bottom: "-20px" }}>
+            Todos os campos devem ser preenchidos.
+          </p>
+        )}
+        {isZeroValue && (
+          <p style={{ position: "absolute", bottom: "-20px" }}>
+            O valor deve ser maior que zero.
+          </p>
+        )}
+      </ErrorMessage>
     </>
   );
 }
