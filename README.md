@@ -10,7 +10,7 @@
 </h2>
 
 <p>
-Um projeto simples de finanças, onde o usuário poderá cadastrar uma receita/despesa e vizualizar o balanço. 
+Um projeto simples de finanças feito em ReactJS, onde o usuário poderá cadastrar uma receita/despesa e vizualizar o balanço. 
   
 Desenvolvi essa aplicação para praticar e aprimorar meus conhecimentos em ReactJS. Em breve estarei implementando o backend, trazendo um banco de dados para guardar os dados das receitas/despesas e, também, criar autenticação para que o usuário possa ter sua conta.
   
