@@ -3,6 +3,7 @@ import Banner from "./components/Banner";
 import Form from "./components/Form";
 import Dashboard from "./components/Dashboard";
 import Table from "./components/Table";
+import { GlobalStyle } from "./GlobalStyle";
 
 export default function App() {
   const [itemList, setItemList] = useState([]);
@@ -24,6 +25,7 @@ export default function App() {
 
   return (
     <>
+      <GlobalStyle/>
       <Banner/>
       <Dashboard itemList={itemList} />
       <Form
