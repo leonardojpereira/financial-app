@@ -1,4 +1,4 @@
-![print_infogames](https://user-images.githubusercontent.com/87662269/234714598-93b8bb7a-c42b-4112-b918-912ac320a763.JPG)
+![financial-app-print](https://github.com/leonardojpereira/financial-app/assets/87662269/3905e5f9-6083-4c20-9e09-c4a2dfe1a0bb)
 
 
 <h1 align="center">
